@@ -1,12 +1,24 @@
 'use strict';
 
 const Discord = require('discord.js');
-const botToken = "Nzc0Njg3MTQ5NDYyNTE5ODA5.X6bZoQ.Cqz0yMx_Y1xkCCa5DzMt_CF28_g";
+
+//token
+const botToken = "TOKEN";
+
+//prefix
 const prefix = "!";
+
+
 const client = new Discord.Client();
+
+//npm install http
 const http = require('http');
+
+//npm install https
 const https = require('https');
 
+//link
+const link = "https://link/index.php?country="
 
 client.on('ready', () => {
 	console.log('Sant onlain');
@@ -24,9 +36,12 @@ client.on('message', message => {
 		case 'coronavirus': {
 			
 			if(args[0]) {
-			
+				
+				// if you have http on link use let client = http;
+				// if you have https on link use let client = https;
+				
 				let client = https;
-				var url = 'https://blowmice.cf/index.php?country='+args[0]+'';
+				var url = link+args[0];
 				
 				client.get(url, (resp) => {
 					
